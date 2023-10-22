@@ -1,11 +1,12 @@
 import { useState } from "react";
 
 function Create() {
-
+    // define variables using the useState hook, for title, authors and cover
     const [title, setTitle] = useState('');
     const [authors, setAuthors] = useState('');
     const [thumbnailUrl, setCover] = useState('');
 
+    // define a function to handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -17,7 +18,7 @@ function Create() {
     return (
         <div>
             <h2>Hello from create component!</h2>
-            {/* form of type submit, invoke onSubmit when button is clicked */}
+            {/* form for adding a new book, invoke onSubmit when button is clicked */}
             <form onSubmit={handleSubmit}>
                 {/* taking user input for title */}
                 <div className="form-group">
@@ -37,7 +38,7 @@ function Create() {
                         onChange={(e) => { setAuthors(e.target.value) }}
                     />
                 </div>
-                {/* taking user input for cover */}
+                {/* input field for book cover URL */}
                 <div className="form-group">
                     <label>Add Cover: </label>
                     <input type="text"
@@ -46,7 +47,7 @@ function Create() {
                         onChange={(e) => { setCover(e.target.value) }}
                     />
                 </div>
-                {/* submitting it somewhere */}
+                {/* Submit button for adding the book */}
                 <div>
                     <input></input><input type="submit" value="Add Book" />
                 </div>
@@ -54,4 +55,5 @@ function Create() {
         </div>
     );
 }
+// Export the Create component for use in other parts of the application
 export default Create;
